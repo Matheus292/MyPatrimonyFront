@@ -7,14 +7,14 @@
         <div class="body">
             <div class="row">
                 <div class="label-float">
-                    <input id="user" type="text" placeholder=" " />
-                    <label for="user">Login</label>
+                    <input v-model="user" type="text" placeholder=" "  />
+                    <label>Login</label>
                 </div>
             </div>
             <div class="row">
                 <div class="label-float">
-                    <input id="password" type="password" placeholder=" " />
-                    <label for="login">Senha</label>
+                    <input v-model="password" type="password" placeholder=" " />
+                    <label>Senha</label>
                 </div>
             </div>
             <div class="forgot">
@@ -22,7 +22,7 @@
             </div>
             <div class="row">
                 <div class="row-btn">
-                    <input type="button" class="btn-action" value="Entrar">
+                    <input type="button" class="btn-action" value="Entrar" v-on:click="login">
                     <input type="button" class="btn-action" value="Novo usuário">
                 </div>
             </div>
@@ -31,8 +31,27 @@
 </template>
 
 <script>
+import api from '@/services/api'
+
 export default {
-    name: 'LoginForm'
+    name: 'LoginForm',
+    data(){
+        return {
+            user: '',
+            password: ''
+        }
+    },
+    methods:{
+       login(){
+            api.post('/login', {login: this.user, password: this.password}).then(response=>{
+                if(response.status === 200){
+                    alert('logado com sucesso')
+                }
+            }).catch(error =>{
+                    this.password = ''
+            })
+       }
+    }
 }
 </script>
 
