@@ -6,16 +6,10 @@
         </div>
         <div class="body">
             <div class="row">
-                <div class="label-float">
-                    <input v-model="user" type="text" placeholder=" "  />
-                    <label>Login</label>
-                </div>
+                <InputForm v-model="user" type="text" label="Login"/>
             </div>
             <div class="row">
-                <div class="label-float">
-                    <input v-model="password" type="password" placeholder=" " />
-                    <label>Senha</label>
-                </div>
+                <InputForm v-model="password" type="password" label="Senha"/>
             </div>
             <div class="forgot">
                 <a href="#">Esqueci minha senha</a>
@@ -32,9 +26,13 @@
 
 <script>
 import api from '@/services/api'
+import InputForm from '@/components/input/InputForm.vue'
 
 export default {
     name: 'LoginForm',
+    components:{
+        InputForm
+    },
     data(){
         return {
             user: '',
@@ -119,67 +117,7 @@ a {
     color: #d44916;
 }
 
-.label-float {
-    position: relative;
-    padding-top: 13px;
-    width: 100%;
-    color: #FFF;
 
-}
-
-.label-float input {
-    border: 0;
-    border-bottom: 2px solid lightgrey;
-    outline: none;
-    min-width: 180px;
-    font-size: 16px;
-    transition: all .3s ease-out;
-    -webkit-transition: all .3s ease-out;
-    -moz-transition: all .3s ease-out;
-    border-radius: 0;
-    background-color: transparent;
-    width: 100%;
-    color: #FFF;
-    height: 30px;
-}
-
-.label-float input:focus {
-    border-bottom: 2px solid #d44916;
-}
-
-.label-float input::placeholder {
-    color: transparent;
-}
-
-.label-float label {
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 13px;
-    transition: all .3s ease-out;
-    -webkit-transition: all .3s ease-out;
-    -moz-transition: all .3s ease-out;
-}
-
-.label-float input:required:invalid+label {
-    color: red;
-}
-
-.label-float input:focus:required:invalid {
-    border-bottom: 2px solid red;
-}
-
-.label-float input:required:invalid+label:before {
-    content: '*';
-}
-
-.label-float input:focus+label,
-.label-float input:not(:placeholder-shown)+label {
-    font-size: 13px;
-    margin-top: 0;
-    color: #d44916;
-}
 
 .btn-action {
     background-color: transparent;
