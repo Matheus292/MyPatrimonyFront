@@ -13,7 +13,6 @@
 <script>
 export default {
     name: 'InputForm',
-
     props:{
         label:{
             type: String
@@ -38,12 +37,11 @@ export default {
 </script>
 
 <style scoped>
-    .label-float {
+.label-float {
     position: relative;
     padding-top: 13px;
     width: 100%;
     color: #FFF;
-
 }
 
 .label-float input {
