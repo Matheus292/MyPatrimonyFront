@@ -61,7 +61,7 @@ export default {
 }
 
 .label-float input:focus {
-    border-bottom: 2px solid #d44916;
+    border-bottom: 2px solid #16c4d4;
 }
 
 .label-float input::placeholder {
@@ -95,7 +95,7 @@ export default {
 .label-float input:not(:placeholder-shown)+label {
     font-size: 13px;
     margin-top: 0;
-    color: #d44916;
+    color: #16c4d4;
 }
 
 </style>
