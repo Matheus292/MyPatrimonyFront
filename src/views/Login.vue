@@ -12,10 +12,10 @@
                 <div class="row">
                     <InputForm v-model="password" type="password" label="Senha" />
                 </div>
-                <div class="forgot">
+                <!--<div class="forgot">
                     <a href="#">Esqueci minha senha</a>
-                    <a href="#">Novo usuário</a>
-                </div>
+                    <a href="#">Registrar-se</a>
+                </div>-->
                 <div class="row">
                     <div class="row-btn">
                         <input type="button" v-show="user.trim() !== '' && password.trim() !== ''" class="btn-action" value="Entrar" @click="login">
