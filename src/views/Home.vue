@@ -1,19 +1,25 @@
 <template>
   <main>
-        <p>Home</p>    
+        <Menu></Menu>
   </main>
 </template>
 
 <script>
 
+import Menu from '@/components/Menu.vue';
+
 export default {
     name: 'Dashboard',
-    created(){
-
-    }    
+    components:{
+      Menu
+    }
 }
 </script>
 
-<style>
-
+<style scoped>
+  main{
+    background-color: #222;
+    width: 100vw;
+    height: 100vh;
+  }
 </style>
