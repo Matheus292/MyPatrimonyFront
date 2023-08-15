@@ -1,6 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+
+import { isLogged } from '@/services/checkSession';
+
 import Login from '../views/Login.vue'
+import Home from '../views/Home.vue'
 
 const routes = [
   {
@@ -8,6 +12,11 @@ const routes = [
     name: 'login',
     component: Login
   },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: Home
+  }
   // {
   //   path: '/about',
   //   name: 'about',
@@ -23,4 +32,16 @@ const router = createRouter({
   routes
 })
 
-export default router
+router.beforeEach(async (to, from ,next) => {
+
+  const isUserLogged = await isLogged();
+
+  if(isUserLogged && to.path === '/')
+    next({name: 'dashboard'})
+  else if(!isUserLogged && to.path !== '/')
+    next({name: 'login'})
+  else 
+    next()
+});
+
+export default router;

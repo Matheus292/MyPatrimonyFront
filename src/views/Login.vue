@@ -138,7 +138,6 @@ import api from '@/services/api'
 import InputForm from '@/components/input/InputForm.vue'
 import AlertModal from '@/components/alert/AlertModal.vue'
 
-
 export default {
     name: 'Login',
     components:{
@@ -161,6 +160,8 @@ export default {
         login(){
             api.post('/login', {login: this.user, password: this.password}).then(response=>{
                 if(response.status === 200){
+                    localStorage.setItem('token', response.data);
+                    this.$router.push('/dashboard');
                 }
             }).catch(error =>{
                     this.password = ''
