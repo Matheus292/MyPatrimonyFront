@@ -87,7 +87,7 @@
   .modal-header {
     position: relative;
     border-bottom: 1px solid #eeeeee;
-    color: #d44916;
+    color: #1688d4;
     justify-content: space-between;
   }
 
@@ -111,8 +111,12 @@
     padding: 10px;
     cursor: pointer;
     font-weight: bold;
-    color: #d44916;
+    color: #1688d4;
     background: transparent;
+  }
+
+  .btn-close:hover{
+    color: #053c61;
   }
 
 .modal-fade-enter,
